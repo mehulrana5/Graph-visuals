@@ -14,8 +14,8 @@ function App() {
       <div className="App">
         <Navbar/>
           <Routes>
-            <Route path="/" element={<GraphEditor/>}/>
-            <Route path="/bst" element={<Tree/>}/>
+            <Route path="Graph-visuals/" element={<GraphEditor/>}/>
+            <Route path="Graph-visuals/bst" element={<Tree/>}/>
           </Routes>
       </div>
     </Router>
