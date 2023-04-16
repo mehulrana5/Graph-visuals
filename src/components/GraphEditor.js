@@ -15,7 +15,6 @@ function GraphEditor() {
       const [from, to] = edge.split('-').map(Number);
       return { from, to };
     });
-
     setGraph({ nodes, edges });
   };
 
@@ -32,7 +31,7 @@ function GraphEditor() {
       hierarchical: false,
     },
     edges: {
-      color: 'white',
+      color: 'black',
     },
   };
 
@@ -51,9 +50,11 @@ function GraphEditor() {
         <button type="submit" className="btn btn-primary">Create Graph</button>
       </form>
       <br />
-      {graph.nodes.length > 0 && (
-        <Graph graph={graph} options={graphOptions} style={{ height: '500px', }} />
-      )}
+      <div className="container" style={{border:"red solid",background:"white"}}>
+        {graph.nodes.length > 0 && (
+          <Graph graph={graph} options={graphOptions} style={{ height: '500px',backGround:"white"}} />
+        )}
+      </div>
     </div>
   );
 }
