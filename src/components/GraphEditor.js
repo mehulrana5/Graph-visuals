@@ -52,7 +52,7 @@ function GraphEditor() {
       <br />
       <div className="container" style={{border:"red solid",background:"white"}}>
         {graph.nodes.length > 0 && (
-          <Graph graph={graph} options={graphOptions} style={{ height: '500px',backGround:"white"}} />
+          <Graph graph={graph} options={graphOptions} style={{backGround:"white",border:"blue solid",height:'500px'}} />
         )}
       </div>
     </div>
