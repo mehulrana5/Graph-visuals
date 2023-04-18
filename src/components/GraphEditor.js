@@ -47,7 +47,7 @@ function GraphEditor() {
         </div>
         <button type="submit" className="btn btn-primary">Create Graph</button>
       </form>
-      <div className="container my-4" style={{background:"white"}}>
+      <div className="container canvas-con" style={{background:"white"}}>
         {graph.nodes.length > 0 && (
           <Graph graph={graph} options={graphOptions}style={{backGround:"white"}} />
         )}
