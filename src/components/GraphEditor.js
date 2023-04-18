@@ -2,9 +2,6 @@ import React, { useState } from 'react';
 import Graph from 'react-graph-vis';
 
 function GraphEditor() {
-  const mystyle={
-    color:"white"
-  }
   const [graph, setGraph] = useState({ nodes: [], edges: [] });
   const [numNodes, setNumNodes] = useState(0);
   const [edgesInput, setEdgesInput] = useState('');
@@ -33,11 +30,13 @@ function GraphEditor() {
     edges: {
       color: 'black',
     },
+    height:'250px',
+    border:'red solid'
   };
 
   return (
-    <div>
-      <form className='container' onSubmit={handleSubmit} style={mystyle}>
+    <div className='container' style={{height:'100%'}}>
+      <form className='container' onSubmit={handleSubmit} style={{color:'white',height:'50%'}}>
         <h1>Graph</h1>
         <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">Number of nodes</label>
@@ -49,10 +48,9 @@ function GraphEditor() {
         </div>
         <button type="submit" className="btn btn-primary">Create Graph</button>
       </form>
-      <br />
-      <div className="container" style={{border:"red solid",background:"white"}}>
+      <div className="container my-4" style={{background:"white"}}>
         {graph.nodes.length > 0 && (
-          <Graph graph={graph} options={graphOptions} style={{backGround:"white",border:"blue solid",height:'500px'}} />
+          <Graph graph={graph} options={graphOptions}style={{backGround:"white"}} />
         )}
       </div>
     </div>

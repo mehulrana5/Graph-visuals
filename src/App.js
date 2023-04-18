@@ -11,7 +11,7 @@ import {
 function App() {
   return (
     <Router>
-      <div className="App">
+      <div className="container" style={{height:'90vh'}}>
         <Navbar/>
           <Routes>
             <Route path="Graph-visuals/" element={<GraphEditor/>}/>
