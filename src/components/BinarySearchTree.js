@@ -59,17 +59,18 @@ function BinarySearchTree() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const inputArray = inputValue.split(',').map(Number);
+    const inputArray = inputValue.split(',');
     let tempRootNode = null;
     for (let i = 0; i < inputArray.length; i++) {
       tempRootNode = insertValue(tempRootNode, inputArray[i]);
-    }
+    };
     setRootNode(tempRootNode);
   };
 
   useEffect(() => {
     if (rootNode !== null) {
       const newGraph = convertToGraph(rootNode);
+      console.log(newGraph);
       setGraph(newGraph);
     }
   }, [rootNode]);
@@ -80,28 +81,22 @@ function BinarySearchTree() {
         direction: 'UD',
       },
     },
-    edges: {
-      color: 'white',
-    },
-    nodes: {
-      color: {
-        background: 'white',
-        border: 'white',
-      },
-    },
+    height:'350px',
   };
 
   return (
-    <div>
+    <div className='container'>
       <form className='container' onSubmit={handleSubmit} style={{ color: "white" }}>
-        <div class="mb-3">
-          <h1 h1>Binary Search Tree</h1>
-          <label for="exampleInputEmail1" class="form-label">Enter comma-separated values</label>
-          <input type="text" class="form-control" value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
+        <div className="mb-3">
+          <h1>Binary Search Tree</h1>
+          <label htmlFor="exampleInputEmail1" className="form-label">Enter comma-separated values</label>
+          <input type="text" className="form-control" value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" className="btn btn-primary">Submit</button>
       </form>
-      {graph && <Graph graph={graph} options={graphOptions} style={{ height: '500px' }} />}
+      <div className="container my-2">
+        {graph && <Graph graph={graph} options={graphOptions} style={{backgroundColor:'white'}} />}
+      </div>
     </div>
   );
 }

@@ -2,19 +2,19 @@ import React, { useState } from 'react';
 import Graph from 'react-graph-vis';
 
 function GraphEditor() {
-  const [graph, setGraph] = useState({ nodes: [], edges: [] });
+  const [graph, setGraph] = useState({ nodes: [], edges: []});
   const [numNodes, setNumNodes] = useState(0);
   const [edgesInput, setEdgesInput] = useState('');
   const handleSubmit = (e) => {
     e.preventDefault();
-    const nodes = Array.from(Array(numNodes).keys()).map((i) => ({ id: i }));
+    const nodes = Array.from(Array(numNodes).keys()).map((i) => ({ id: i,label:`${i}` }));
     const edges = edgesInput.split(',').map((edge) => {
       const [from, to] = edge.split('-').map(Number);
       return { from, to };
     });
-    setGraph({ nodes, edges });
+    console.log(nodes);
+    setGraph({ nodes, edges});
   };
-
   const handleNumNodesChange = (e) => {
     setNumNodes(parseInt(e.target.value));
   };
@@ -31,7 +31,6 @@ function GraphEditor() {
       color: 'black',
     },
     height:'250px',
-    border:'red solid'
   };
 
   return (
